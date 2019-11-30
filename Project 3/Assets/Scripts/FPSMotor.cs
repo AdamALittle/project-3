@@ -39,7 +39,10 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	public void SkiMove(){
-		rb.AddForce(_camera.transform.forward * 20.0f);
+		if (_isGrounded == false && Vector3.Dot(rb.velocity, _camera.transform.forward) <= 30){
+			rb.AddForce(_camera.transform.forward * 150.0f * Input.GetAxisRaw("Vertical"));
+			rb.AddForce(_camera.transform.right * 100.0f * Input.GetAxisRaw("Horizontal"));
+		}
 	}
 
 	public void Turn(float turnAmount){
@@ -57,11 +60,19 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	public void Fly(){
-		rb.AddForce(Vector3.up * 125.5f);
+		rb.AddForce(Vector3.up * 255.5f);
 	}
 
 	private void FixedUpdate(){
-		ApplyMovement(_movementThisFrame);
+		Debug.Log(Vector3.Dot(rb.velocity, _camera.transform.forward));
+		if (Input.GetKeyDown(KeyCode.Space)){
+			rb.velocity = _movementThisFrame * 40.0f;
+		}
+		if (Input.GetKey(KeyCode.Space)){
+			SkiMove();
+		} else {
+			ApplyMovement(_movementThisFrame);
+		}
 		ApplyTurn(_turnAmountThisFrame);
 		ApplyLook(_lookAmountThisFrame);
 	}
