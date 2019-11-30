@@ -248,7 +248,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1995063068155868142, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068155868142, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068155868142, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068155868142, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068155868141, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: playerFeet
+      value: 
+      objectReference: {fileID: 2106887974}
+    - target: {fileID: 1995063068155868141, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: _moveSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063067679100970, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063067679100970, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063067679100970, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068200543507, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4458401
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068200543507, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4458401
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068200543507, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4458401
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995063068200543505, guid: 15e310a29785cd347abe9b7f246531b0,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 45b4702ac7ceb8644bf000e8d7b42b87,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 1995063068155868143, guid: 15e310a29785cd347abe9b7f246531b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 15e310a29785cd347abe9b7f246531b0, type: 3}
 --- !u!1 &1292354165
 GameObject:
@@ -275,7 +342,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292354165}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c0a8358534ccf35409bdcc1499ae8595, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: b89fe29c7e43eaf4d9e56ce7aecca9d7, type: 2}
   m_EnableTreeColliders: 1
@@ -329,3 +396,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1620541390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1995063068155868137, guid: 15e310a29785cd347abe9b7f246531b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 338245104}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1620541394
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620541390}
+  m_Material: {fileID: 13400000, guid: e6644d548070ced43a00a038b294439a, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2106887974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1995063068200543506, guid: 15e310a29785cd347abe9b7f246531b0,
+    type: 3}
+  m_PrefabInstance: {fileID: 338245104}
+  m_PrefabAsset: {fileID: 0}

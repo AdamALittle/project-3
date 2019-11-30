@@ -38,6 +38,10 @@ public class FPSMotor : MonoBehaviour
 		_movementThisFrame = requestedMovement;
 	}
 
+	public void SkiMove(){
+		rb.AddForce(_camera.transform.forward * 20.0f);
+	}
+
 	public void Turn(float turnAmount){
 		_turnAmountThisFrame = turnAmount;
 	}
@@ -52,8 +56,8 @@ public class FPSMotor : MonoBehaviour
 		rb.AddForce(Vector3.up * jumpForce);
 	}
 
-	public void Push(Vector3 pushDirection, float pushForce){
-		rb.AddForce(pushDirection * pushForce);
+	public void Fly(){
+		rb.AddForce(Vector3.up * 125.5f);
 	}
 
 	private void FixedUpdate(){

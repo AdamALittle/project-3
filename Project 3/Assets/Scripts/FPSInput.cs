@@ -5,12 +5,14 @@ public class FPSInput : MonoBehaviour
 {
 	public event Action<Vector3> MoveInput = delegate { };
 	public event Action<Vector3> RotateInput = delegate { };
-	public event Action JumpInput = delegate { };
+	public event Action SkiInput = delegate { };
+	public event Action SkiOff = delegate { };
+	public event Action JetpackInput = delegate { };
 
 	void Update(){
 		DetectMoveInput();
 		DetectRotateInput();
-		DetectJumpInput();
+		DetectSkiInput();
 		DetectRMB();
 		DetectEscape();
 	}
@@ -41,15 +43,17 @@ public class FPSInput : MonoBehaviour
 		}
 	}
 
-	void DetectJumpInput(){
-		if (Input.GetKeyDown(KeyCode.Space)){
-			JumpInput?.Invoke();
+	void DetectSkiInput(){
+		if (Input.GetKey(KeyCode.Space)){
+			SkiInput?.Invoke();
+		} else {
+			SkiOff?.Invoke();
 		}
 	}
 
 	void DetectRMB(){
 		if (Input.GetMouseButton(1)){
-			//do nothing
+			JetpackInput?.Invoke();
 		}
 	}
 

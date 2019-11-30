@@ -9,11 +9,13 @@ public class PlayerController : MonoBehaviour
 	FPSInput _input = null;
 	FPSMotor _motor = null;
 
-	[SerializeField] float _moveSpeed = 0.1f;
+	[SerializeField] float _moveSpeed = 200.1f;
 	[SerializeField] float _turnSpeed = 6.0f;
 	[SerializeField] float _jumpStrength = 10.0f;
 
 	[SerializeField] Camera cameraController = null;
+
+	[SerializeField] GameObject playerFeet = null;
 
 	private void Awake(){
 		_input = GetComponent<FPSInput>();
@@ -27,13 +29,17 @@ public class PlayerController : MonoBehaviour
 	private void OnEnable(){
 		_input.MoveInput += OnMove;
 		_input.RotateInput += OnRotate;
-		_input.JumpInput += OnJump;
+		_input.SkiInput += OnJump;
+		_input.SkiOff += OnSkiRelease;
+		_input.JetpackInput += OnFly;
 	}
 
 	private void OnDisable(){
 		_input.MoveInput -= OnMove;
 		_input.RotateInput -= OnRotate;
-		_input.JumpInput -= OnJump;
+		_input.SkiInput -= OnJump;
+		_input.SkiOff -= OnSkiRelease;
+		_input.JetpackInput -= OnFly;
 	}
 
 	void OnMove(Vector3 movement){
@@ -46,6 +52,14 @@ public class PlayerController : MonoBehaviour
 	}
 
 	void OnJump(){
-		_motor.Jump(_jumpStrength);
+		playerFeet.SetActive(false);
+	}
+
+	void OnSkiRelease(){
+		playerFeet.SetActive(true);
+	}
+
+	void OnFly(){
+		_motor.Fly();
 	}
 }
