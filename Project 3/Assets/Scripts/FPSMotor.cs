@@ -39,7 +39,8 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	public void SkiMove(){
-		rb.AddForce(_camera.transform.forward * 20.0f);
+		rb.AddForce(_camera.transform.forward * 50.0f * Input.GetAxisRaw("Vertical"));
+		rb.AddForce(_camera.transform.right * 20.0f * Input.GetAxisRaw("Horizontal"));
 	}
 
 	public void Turn(float turnAmount){
@@ -61,7 +62,11 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	private void FixedUpdate(){
-		ApplyMovement(_movementThisFrame);
+		if (Input.GetKey(KeyCode.Space)){
+			SkiMove();
+		} else {
+			ApplyMovement(_movementThisFrame);
+		}
 		ApplyTurn(_turnAmountThisFrame);
 		ApplyLook(_lookAmountThisFrame);
 	}
