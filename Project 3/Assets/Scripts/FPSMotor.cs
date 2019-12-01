@@ -39,9 +39,11 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	public void SkiMove(){
-		if (_isGrounded == false && Vector3.Dot(rb.velocity, _camera.transform.forward) <= 30){
-			rb.AddForce(_camera.transform.forward * 150.0f * Input.GetAxisRaw("Vertical"));
-			rb.AddForce(_camera.transform.right * 100.0f * Input.GetAxisRaw("Horizontal"));
+		if (_isGrounded == false){
+			if (Vector3.Dot(rb.velocity, _camera.transform.forward) <= 30){
+				rb.AddForce(_camera.transform.forward * 150.0f * Input.GetAxisRaw("Vertical"));
+			}
+			rb.AddForce(_camera.transform.right * 150.0f * Input.GetAxisRaw("Horizontal"));
 		}
 	}
 
