@@ -8,6 +8,7 @@ public class FPSMotor : MonoBehaviour
 	[SerializeField] Camera _camera = null;
 	[SerializeField] float _cameraAngleLimit = 70f;
 	[SerializeField] GroundDetector _groundDetector = null;
+	[SerializeField] GameObject velocityBox = null;
 	bool _isGrounded = false;
 
 	private float _currentCameraRotationX = 0;
@@ -71,8 +72,10 @@ public class FPSMotor : MonoBehaviour
 			rb.velocity = _movementThisFrame * 40f + rb.velocity;
 		}
 		if (Input.GetKey(KeyCode.Space)){
+			velocityBox.SetActive(true);
 			SkiMove();
 		} else {
+			velocityBox.SetActive(false);
 			ApplyMovement(_movementThisFrame);
 		}
 		ApplyTurn(_turnAmountThisFrame);
