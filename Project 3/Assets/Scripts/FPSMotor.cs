@@ -41,10 +41,10 @@ public class FPSMotor : MonoBehaviour
 
 	public void SkiMove(){
 		if (_isGrounded == false){
-			if (Vector3.Dot(rb.velocity, _camera.transform.forward) <= 30){
-				rb.AddForce(_camera.transform.forward * 150.0f * Input.GetAxisRaw("Vertical"));
+			if (Vector3.Dot(rb.velocity, _camera.transform.forward) <= 20){
+				rb.AddForce(_camera.transform.forward * 100.0f * Input.GetAxisRaw("Vertical"));
 			}
-			rb.AddForce(_camera.transform.right * 150.0f * Input.GetAxisRaw("Horizontal"));
+			rb.AddForce(_camera.transform.right * 100.0f * Input.GetAxisRaw("Horizontal"));
 		}
 	}
 
@@ -67,7 +67,7 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	private void FixedUpdate(){
-		if (Input.GetKeyDown(KeyCode.Space)){
+		if (Input.GetKeyDown(KeyCode.Space) && rb.velocity.magnitude <= 30f){
 			// When pressing space, recalculate velocity based on non-force movement
 			rb.velocity = _movementThisFrame * 40f + rb.velocity;
 		}
