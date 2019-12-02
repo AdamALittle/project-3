@@ -66,9 +66,9 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	private void FixedUpdate(){
-		Debug.Log(Vector3.Dot(rb.velocity, _camera.transform.forward));
 		if (Input.GetKeyDown(KeyCode.Space)){
-			rb.velocity = _movementThisFrame * 40.0f;
+			// When pressing space, recalculate velocity based on non-force movement
+			rb.velocity = _movementThisFrame * 40f + rb.velocity;
 		}
 		if (Input.GetKey(KeyCode.Space)){
 			SkiMove();
