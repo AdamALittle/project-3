@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] float _turnSpeed = 6.0f;
 	[SerializeField] float _jumpStrength = 10.0f;
 
-	[SerializeField] Camera cameraController = null;
-
 	[SerializeField] GameObject playerFeet = null;
 
 	private void Awake(){
