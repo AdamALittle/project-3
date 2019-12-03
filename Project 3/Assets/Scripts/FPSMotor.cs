@@ -41,11 +41,11 @@ public class FPSMotor : MonoBehaviour
 
 	public void SkiMove(){
 		if (_isGrounded == false){
-			if (Vector3.Dot(rb.velocity, _camera.transform.forward) <= 20){
-				rb.AddForce(_camera.transform.forward * 100.0f * Input.GetAxisRaw("Vertical"));
+			if (Vector3.Dot(rb.velocity, _camera.transform.forward) <= 15){
+				rb.AddForce(_camera.transform.forward * 50.0f * Input.GetAxisRaw("Vertical"));
 			}
-			rb.AddForce(_camera.transform.right * 100.0f * Input.GetAxisRaw("Horizontal"));
 		}
+		rb.AddForce(_camera.transform.right * 50.0f * Input.GetAxisRaw("Horizontal"));
 	}
 
 	public void Turn(float turnAmount){
@@ -63,7 +63,7 @@ public class FPSMotor : MonoBehaviour
 	}
 
 	public void Fly(){
-		rb.AddForce(Vector3.up * 255.5f);
+		rb.AddForce(Vector3.up * 200f);
 	}
 
 	private void FixedUpdate(){
