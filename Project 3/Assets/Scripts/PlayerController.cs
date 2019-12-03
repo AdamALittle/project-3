@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] float _moveSpeed = 200.1f;
 	[SerializeField] float _turnSpeed = 6.0f;
-	[SerializeField] float _jumpStrength = 10.0f;
 
 	[SerializeField] GameObject playerFeet = null;
 

@@ -9,6 +9,8 @@ public class FPSInput : MonoBehaviour
 	public event Action SkiOff = delegate { };
 	public event Action JetpackInput = delegate { };
 
+	[SerializeField] GameObject jetAudio = null;
+
 	void Update(){
 		DetectMoveInput();
 		DetectRotateInput();
@@ -53,7 +55,11 @@ public class FPSInput : MonoBehaviour
 
 	void DetectRMB(){
 		if (Input.GetMouseButton(1)){
+			jetAudio.SetActive(true);
 			JetpackInput?.Invoke();
+		}
+		if (Input.GetMouseButtonUp(1)){
+			jetAudio.SetActive(false);
 		}
 	}
 
